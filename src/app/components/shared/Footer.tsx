@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <footer className="bg-[#FFFFFF] font-poppins mx-auto max-w-[1440px] px-9 lg:px-[80px]">
       <div>
+       
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[300px_352px_286px] gap-20 lg:gap-6">
           <div className="flex flex-col gap-[52px] mr-[100px] lg:mr-[120px]">
-            <h1 className="font-bold text-2xl">Funiro.</h1>
+            <h1 className="font-bold text-2xl">Furniro.</h1>
 
             <p className="max-w-[290px] text-base text-[#9F9F9F]">
               400 University Drive Suite 200 Coral Gables, FL 33134 USA
@@ -54,9 +55,11 @@ const Footer = () => {
                 className="outline-none border-b-[2px] border-black
 "
               />
+              <Link href={"/"}>
               <p className="text-sm border-b-[2px] border-black uppercase cursor-pointer">
                 Subscribe
               </p>
+              </Link>
             </div>
           </div>
         </div>
@@ -66,7 +69,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="h-14 content-center">
-        <p className="text-base">2023 Furino. All rights reserved.</p>
+        <p className="text-base">2023 Furniro. All rights reserved.</p>
       </div>
     </footer>
   );
