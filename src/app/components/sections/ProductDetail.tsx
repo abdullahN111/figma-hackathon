@@ -20,7 +20,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="w-full mx-auto py-10 mb-12 px-6 sm:px-10 lg:px-24 font-poppins flex flex-col lg:flex-row gap-10 lg:gap-0">
+    <div className="w-full mx-auto py-10 mb-12 px-6 sm:px-10 lg:px-24 font-poppins flex flex-col lg:flex-row gap-10 lg:gap-6">
       <div className="basis-[40%] flex flex-col lg:flex-row gap-6">
         <div className="flex flex-row lg:flex-col gap-3 sm:gap-5 md:gap-7">
           {product.sideImages.map((img, idx) => (
@@ -28,21 +28,18 @@ const ProductDetail = () => {
               key={idx}
               src={img}
               alt={`Product side image ${idx + 1}`}
-              className="bg-[#F9F1E7] rounded-md max-w-[68px] lg:max-w-[73px] w-auto"
+              className="bg-[#F9F1E7] rounded-md w-auto max-w-[50px] sm:max-w-[63px] md:max-w-[70px] lg:max-w-[75px]"
             />
           ))}
         </div>
         <div>
-        <div className="flex justify-center items-center bg-[#F9F1E7] rounded-md w-auto h-[300px] lg:h-[500px]">
-  <Image
-    src={product.mainImage}
-    alt={`${product.name} main image`}
-    className="max-w-full h-auto object-contain"
-  />
-</div>
-
-
-
+          <div className="flex justify-center items-center bg-[#F9F1E7] rounded-md w-auto h-[300px] lg:h-[500px]">
+            <Image
+              src={product.mainImage}
+              alt={`${product.name} main image`}
+              className="max-w-full h-auto object-contain"
+            />
+          </div>
         </div>
       </div>
 
