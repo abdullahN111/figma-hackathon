@@ -1,4 +1,4 @@
-import ShopHeader from "@/app/components/sections/ShopHeader";
+import SecondaryHeader from "@/app/components/shared/SecondaryHeader";
 import ShopFilter from "@/app/components/sections/ShopFilter";
 import ShopButtons from "@/app/components/sections/ShopButtons";
 import ProductCard from "@/app/components/cards/ProductCard";
@@ -7,7 +7,7 @@ import ServiceBar from "@/app/components/shared/ServiceBar";
 const page = () => {
   return (
     <section className="max-w-[1440px]">
-      <ShopHeader />
+      <SecondaryHeader routeName="Shop" />
       <ShopFilter />
       <ProductCard />
       <ShopButtons />
