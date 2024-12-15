@@ -37,7 +37,7 @@ const Explore = () => {
           Our designer already made a lot of beautiful prototypes of rooms
           that inspire you
         </p>
-        <button className="bg-[#B88E2F] hover:bg-[#b88f2ff2] rounded-sm py-2 px-6 sm:px-8 text-white text-sm sm:text-base font-semibold mt-4">
+        <button className="bg-[#B88E2F] hover:bg-[#b88f2ff8] rounded-sm py-2 px-6 sm:px-8 text-white text-sm sm:text-base font-semibold mt-4">
           Explore More
         </button>
       </div>

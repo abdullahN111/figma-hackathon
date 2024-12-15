@@ -1,8 +1,9 @@
 import SecondaryHeader from "@/app/components/shared/SecondaryHeader";
+import ServiceBar from "@/app/components/shared/ServiceBar";
 
 const About = () => {
   return (
-    <section className="bg-[#FAF3EA] max-w-[1440px] mb-12 font-poppins">
+    <section className="bg-[#FAF3EA] max-w-[1440px] mb-12 font-poppins shadow-md">
       <SecondaryHeader routeName="About" />
       <div className="max-w-5xl mx-auto p-8">
         <div className="my-8">
@@ -42,6 +43,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      <ServiceBar />
     </section>
   );
 };
