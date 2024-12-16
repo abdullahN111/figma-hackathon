@@ -43,6 +43,7 @@ const About = () => {
           </p>
         </div>
       </div>
+
       <ServiceBar />
     </section>
   );
