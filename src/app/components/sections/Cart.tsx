@@ -101,9 +101,12 @@ const Cart = () => {
               {subtotal}.00
             </span>
           </div>
+
+          <Link href="/checkout">
           <button className="block mx-auto w-[200px] rounded-xl border border-black text-black px-2 py-3 text-xl hover:bg-[#fae9d3a6] transition my-10">
             Check Out
           </button>
+          </Link>
         </div>
       </div>
     </section>
