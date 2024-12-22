@@ -7,14 +7,22 @@ import { FiSearch } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { FcMenu } from "react-icons/fc";
+import { ImCancelCircle } from "react-icons/im";
+
 import Link from "next/link";
 import { useState } from "react";
 
+import CartItems from "@/app/components/CartItems";
+
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setOpenMenu(!openMenu);
+  };
+  const toggleCart = () => {
+    setOpenCart(!openCart);
   };
 
   return (
@@ -79,6 +87,7 @@ const Header = () => {
           </Link>
           <Link
             href="/"
+            onClick={toggleCart}
             className="cursor-pointer hover:shadow-[0_1px_0_rgba(0,0,0,0.2)] transition-shadow"
           >
             <MdOutlineLocalGroceryStore />
@@ -93,26 +102,31 @@ const Header = () => {
       </div>
 
       {/* Menu */}
-      {menuOpen && (
-        <div className="absolute top-[100px] left-0 w-full py-8 bg-[#FFFFFF] shadow-md z-[1000]">
+      {openMenu && (
+        <div className="absolute top-[100px] left-0 w-full py-6 bg-[#FFFFFF] shadow-md z-[1000]">
           <ul className="flex flex-col items-center font-poppins py-4 gap-4">
             <Link
               href="/"
               onClick={toggleMenu}
               className="cursor-pointer hover:shadow-[0_3px_0_rgba(0,0,0,0.2)] transition-shadow"
             >
+              <li className="text-xl cursor-pointer"> <ImCancelCircle /> </li>
+            </Link>
+            <Link
+              href="/"
+           
+              className="cursor-pointer hover:shadow-[0_3px_0_rgba(0,0,0,0.2)] transition-shadow"
+            >
               <li className="text-base cursor-pointer">Home</li>
             </Link>
             <Link
               href="/shop"
-              onClick={toggleMenu}
               className="cursor-pointer hover:shadow-[0_3px_0_rgba(0,0,0,0.2)] transition-shadow"
             >
               <li className="text-base cursor-pointer">Shop</li>
             </Link>
             <Link
               href="/about"
-              onClick={toggleMenu}
               className="cursor-pointer hover:shadow-[0_3px_0_rgba(0,0,0,0.2)] transition-shadow"
             >
               <li className="text-base cursor-pointer">About</li>
@@ -147,15 +161,27 @@ const Header = () => {
             >
               <FaRegHeart />
             </Link>
-            <Link
-              href="/"
-              onClick={toggleMenu}
+            <button
+              onClick={toggleCart}
               className="cursor-pointer hover:shadow-[0_1px_0_rgba(0,0,0,0.2)] transition-shadow"
             >
               <MdOutlineLocalGroceryStore />
-            </Link>
+            </button>
           </div>
         </div>
+      )}
+
+      {openCart && (
+      <div
+      className="fixed right-0 top-0 inset-0 w-full h-screen bg-black bg-opacity-20 z-[1000] flex justify-end"
+      onClick={() => setOpenCart(false)}
+    >
+
+    
+     
+  
+        <CartItems />
+      </div>
       )}
     </header>
   );
