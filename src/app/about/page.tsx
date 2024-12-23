@@ -3,7 +3,7 @@ import ServiceBar from "@/app/components/shared/ServiceBar";
 
 const About = () => {
   return (
-    <section className="bg-[#FAF3EA] max-w-[1440px] mb-12 font-poppins shadow-md">
+    <section className="bg-[#FAF3EA] max-w-[1440px] mx-auto mb-12 font-poppins shadow-md">
       <SecondaryHeader routeName="About" />
       <div className="max-w-5xl mx-auto p-8">
         <div className="my-8">

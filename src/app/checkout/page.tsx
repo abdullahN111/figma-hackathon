@@ -5,7 +5,7 @@ import PaymentMethod from "@/app/components/PaymentMethod";
 
 const Page = () => {
   return (
-    <section className="max-w-[1440px] font-poppins">
+    <section className="max-w-[1440px] mx-auto font-poppins">
       <SecondaryHeader routeName="Checkout" />
       <div className="py-10 px-2 lg:px-24 flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-6">
         <PaymentMethod />

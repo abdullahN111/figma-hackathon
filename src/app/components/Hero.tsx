@@ -3,7 +3,7 @@ import HeroImage from "@/app/public/assets/images/main/Hero.png";
 
 const Hero = () => {
   return (
-    <section className="relative max-w-[1440px] flex items-center justify-end bg-white h-[700px]">
+    <section className="relative max-w-[1440px] mx-auto flex items-center justify-end bg-white h-[700px]">
       {/* Image Section */}
       <div className="absolute opacity-80 md:opacity-100 inset-0 w-full h-full">
 

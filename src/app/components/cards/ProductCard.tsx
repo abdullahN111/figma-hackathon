@@ -13,7 +13,7 @@ const ProductCard = () => {
       return (
         <div
           key={card.id}
-          className="relative flex flex-col w-[250px] sm:w-auto h-[350px] bg-[#F4F5F7] rounded-sm shadow-md overflow-hidden sm:mx-10 md:mx-2 lg:mx-0 transition-transform duration-300 hover:scale-105 cursor-pointer group"
+          className="relative flex flex-col w-[250px] sm:w-auto h-[350px] lg:h-[400px] bg-[#F4F5F7] rounded-sm shadow-md overflow-hidden sm:mx-10 md:mx-2 lg:mx-0 transition-transform duration-300 hover:scale-105 cursor-pointer group"
         >
           <div className="relative w-full h-0 pb-[75%]">
             <Image

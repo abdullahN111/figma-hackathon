@@ -3,8 +3,8 @@ import ContactForm from "@/app/components/sections/ContactForm";
 
 const page = () => {
   return (
-    <section className="max-w-[1440px]">
-      <div className="flex flex-col gap-20 mx-auto">
+    <section className="max-w-[1440px] mx-auto">
+      <div className="flex flex-col gap-20 mx-auto my-24">
         <div className="flex flex-col gap-[10px] items-center justify-center">
           <h2 className="text-4xl font-semibold text-center">
             Get In Touch With Us

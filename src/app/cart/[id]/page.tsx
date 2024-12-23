@@ -5,7 +5,7 @@ import ServiceBar from '@/app/components/shared/ServiceBar'
 
 const page = () => {
   return (
-    <section className='max-w-[1440px]'>
+    <section className='max-w-[1440px] mx-auto'>
 <SecondaryHeader routeName='Cart' />
 <Cart />
 <ServiceBar />
