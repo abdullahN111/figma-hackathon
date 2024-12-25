@@ -9,7 +9,6 @@ import ProductImage6 from "@/app/public/assets/images/products/ProductImage6.png
 import ProductImage7 from "@/app/public/assets/images/products/ProductImage7.png";
 import ProductImage8 from "@/app/public/assets/images/products/ProductImage8.png";
 
-
 export interface ProductCartInfo {
   id: number;
   sideImages: StaticImageData[];
@@ -19,6 +18,8 @@ export interface ProductCartInfo {
   stars: string[];
   reviews: string;
   description: string;
+  inventoryStatus: boolean;
+  inventoryInStock: number;
 }
 
 export const productCardInfo: ProductCartInfo[] = [
@@ -32,6 +33,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "7 Customer Review",
     description:
       "Setting the bar as one of the most stylish chairs in its class, the Syltherine is a sleek, modern masterpiece with a sturdy design that offers exceptional comfort and elegance for any cafe setting.",
+    inventoryStatus: true,
+    inventoryInStock: 8,
   },
   {
     id: 2,
@@ -43,6 +46,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "4 Customer Review",
     description:
       "Setting the bar as one of the most stylish chairs in its class, modern masterpiece with a sturdy design that offers exceptional comfort and elegance for any cafe setting.",
+    inventoryStatus: true,
+    inventoryInStock: 5,
   },
   {
     id: 3,
@@ -54,6 +59,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "3 Customer Review",
     description:
       "Setting the bar as one of the most luxurious sofas in its class, the Lolito is a refined, modern centerpiece with plush cushioning and a sleek design that offers unmatched comfort and sophistication for any living space.",
+    inventoryStatus: false,
+    inventoryInStock: 0,
   },
   {
     id: 4,
@@ -65,6 +72,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "9 Customer Review",
     description:
       "Setting the bar as one of the most versatile sets in its class, the Respira is a chic, durable design with weather-resistant materials that offer a perfect blend of style and functionality for any outdoor setting.",
+    inventoryStatus: true,
+    inventoryInStock: 4,
   },
   {
     id: 5,
@@ -76,6 +85,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "10 Customer Review",
     description:
       "Setting the bar as one of the most elegant lamps in its class, the Grifo is a minimalist, ambient light with a sleek design that offers a warm glow and timeless charm for any nighttime setting.",
+    inventoryStatus: true,
+    inventoryInStock: 6,
   },
   {
     id: 6,
@@ -87,6 +98,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "6 Customer Review",
     description:
       "Setting the bar as one of the most charming mugs in its class, the Muggo is a compact, stylish design with an ergonomic handle and durable build that offers a delightful experience for any beverage.",
+    inventoryStatus: false,
+    inventoryInStock: 0,
   },
   {
     id: 7,
@@ -98,6 +111,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "8 Customer Review",
     description:
       "Setting the bar as one of the most adorable bed sets in its class, the Pinkgy is a cozy, vibrant design with soft fabrics and charming patterns that offer comfort and a playful touch to any bedroom.",
+    inventoryStatus: true,
+    inventoryInStock: 7,
   },
   {
     id: 8,
@@ -109,5 +124,7 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "3 Customer Review",
     description:
       "Setting the bar as one of the most elegant pots in its class, the Potty is a sleek, modern design with clean lines and durable materials that offer a perfect home for plants in any minimalist space.",
+    inventoryStatus: true,
+    inventoryInStock: 3,
   },
 ];

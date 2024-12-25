@@ -20,6 +20,8 @@ export interface ProductCardData {
   features: string;
   price: string;
   oldPrice?: string;
+  inventoryStatus: boolean;
+  inventoryInStock: number;
 }
 
 export const ProductCardData: ProductCardData[] = [
@@ -31,6 +33,8 @@ export const ProductCardData: ProductCardData[] = [
     features: "Stylish cafe chair",
     price: "Rs 2,500.00",
     oldPrice: "Rs 3,500.00",
+    inventoryStatus: true,
+    inventoryInStock: 8,
   },
   {
     id: 2,
@@ -38,6 +42,8 @@ export const ProductCardData: ProductCardData[] = [
     name: "Leviosa",
     features: "Stylish cafe chair",
     price: "Rs 2,500.00",
+    inventoryStatus: true,
+    inventoryInStock: 5,
   },
   {
     id: 3,
@@ -47,6 +53,8 @@ export const ProductCardData: ProductCardData[] = [
     features: "Stylish cafe chair",
     price: "Rs 7,000.00",
     oldPrice: "Rs 14,000.00",
+    inventoryStatus: false,
+    inventoryInStock: 0,
   },
   {
     id: 4,
@@ -55,6 +63,8 @@ export const ProductCardData: ProductCardData[] = [
     name: "Respira",
     features: "Outdoor bar table and stool",
     price: "Rs 5,000.00",
+    inventoryStatus: true,
+    inventoryInStock: 7,
   },
   {
     id: 5,
@@ -62,6 +72,8 @@ export const ProductCardData: ProductCardData[] = [
     name: "Grifo",
     features: "Night lamp",
     price: "Rs 1,500.00",
+    inventoryStatus: true,
+    inventoryInStock: 3,
   },
   {
     id: 6,
@@ -70,6 +82,8 @@ export const ProductCardData: ProductCardData[] = [
     name: "Muggo",
     features: "Small mug",
     price: "Rs 500.00",
+    inventoryStatus: true,
+    inventoryInStock: 4,
   },
   {
     id: 7,
@@ -79,6 +93,8 @@ export const ProductCardData: ProductCardData[] = [
     features: "Cute bed set",
     price: "Rs 7,000.00",
     oldPrice: "Rs 14,000.00",
+    inventoryStatus: false,
+    inventoryInStock: 0,
   },
   {
     id: 8,
@@ -87,5 +103,7 @@ export const ProductCardData: ProductCardData[] = [
     name: "Potty",
     features: "Minimalist flower pot",
     price: "Rs 500.00",
+    inventoryStatus: true,
+    inventoryInStock: 6,
   },
 ];

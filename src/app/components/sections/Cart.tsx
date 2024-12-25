@@ -50,7 +50,7 @@ const Cart = () => {
                     <div className="flex items-center justify-start space-x-5">
                       <Image
                         src={item.mainImage}
-                        alt="Asgaard Sofa"
+                        alt="product"
                         width={90}
                         height={90}
                         className="rounded-md"

@@ -103,8 +103,8 @@ const ProductDetail = () => {
               </Link>
             </div>
             <div className="cursor-pointer hover:bg-[#F9F1E7] flex items-center gap-3 py-2 px-5 rounded-lg border border-black">
-              <span>+</span>
-              <button>Compare</button>
+              
+              <button>Stock</button>
             </div>
           </div>
         </div>
