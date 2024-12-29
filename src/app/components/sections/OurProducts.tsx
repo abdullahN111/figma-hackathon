@@ -1,4 +1,5 @@
 import ProductCard from "@/app/components/cards/ProductCard";
+import Link from "next/link";
 
 const OurProducts = () => {
   return (
@@ -8,7 +9,9 @@ const OurProducts = () => {
       </h2>
       <ProductCard />
       <button className="border mx-auto rounded-sm border-[#B88E2F] text-[#B88E2F] text-base font-semibold py-2 px-10 mt-8 sm:mt-4 md:mt-2 hover:text-white hover:bg-[#B88E2F] transition duration-300 py">
+      <Link href="/shop">
         Show More
+      </Link>
       </button>
     </section>
   );

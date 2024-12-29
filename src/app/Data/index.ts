@@ -107,3 +107,61 @@ export const ProductCardData: ProductCardData[] = [
     inventoryInStock: 6,
   },
 ];
+
+
+
+
+// // Your provided ProductCardData interface
+// export interface ProductCardData {
+//   id: number;
+//   image: StaticImageData;  // This will handle both StaticImageData (Next.js images) and strings (URLs)
+//   badge?: {
+//     text: string;
+//     color: string;
+//   };
+//   name: string;
+//   features: string;
+//   price: string;
+//   oldPrice?: string;
+//   inventoryStatus: boolean;
+//   inventoryInStock: number;
+// }
+
+
+// export const fetchProductData = async (): Promise<ProductCardData[]> => {
+//   try {
+//     const url = 'https://getrit-furniture-store.p.rapidapi.com/API/Token?Token=Demo'; 
+//     const response = await fetch(url, {
+//       method: 'GET',
+//       headers: {
+//         'x-rapidapi-key': process.env.API_KEY ||,   
+//         'x-rapidapi-host': process.env.HOST ||  
+//       }
+//     });
+
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch products from RapidAPI");
+//     }
+
+//     const data = await response.json();
+
+//     // Map the response data to fit the ProductCardData structure
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     const products: ProductCardData[] = data.map((item: any) => ({
+//       id: item.id,
+//       image: item.image,  // Make sure the image is returned as either a URL or StaticImageData
+//       badge: item.badge ? { text: item.badge.text, color: item.badge.color } : undefined,
+//       name: item.name,
+//       features: item.features,
+//       price: item.price,
+//       oldPrice: item.oldPrice,
+//       inventoryStatus: item.inventoryStatus,
+//       inventoryInStock: item.inventoryInStock,
+//     }));
+
+//     return products;
+//   } catch (error) {
+//     console.error("Error fetching product data:", error);
+//     return [];  // Return an empty array in case of error
+//   }
+// };

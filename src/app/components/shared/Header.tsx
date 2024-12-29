@@ -35,7 +35,7 @@ const Header = () => {
     
     <header className="bg-[#FFFFFF] mx-auto max-w-[1440px] h-24 px-6 lg:px-[54px]">
       <div className="flex items-center justify-between h-full">
-        {/* Logo */}
+        
         <Link href="/">
           <div className="flex items-center gap-2">
             <Image src={Logo} alt="furniro logo" width={46} height={30} />
@@ -69,7 +69,10 @@ const Header = () => {
           </Link>
           <Link
             href="/"
-            onClick={toggleCart}
+            onClick={(e) =>{
+              e.preventDefault();
+              toggleCart();
+            }}
             className="cursor-pointer hover:shadow-[0_1px_0_rgba(0,0,0,0.2)] transition-shadow"
           >
             <MdOutlineLocalGroceryStore />

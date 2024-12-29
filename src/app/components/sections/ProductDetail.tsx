@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import { productCardInfo } from "@/app/Data/product";
-import { useParams, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useParams } from "next/navigation";
+// import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/app/context/CartContext";
 
 const ProductDetail = () => {
-  const [quantity, setQuantity] = useState(1); 
+  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams<{ id: string }>();
-  const router = useRouter();
+  // const router = useRouter();
 
   const product = productCardInfo.find((item) => item.id === parseInt(id)); // Finding product id
   if (!product) {
@@ -23,13 +25,21 @@ const ProductDetail = () => {
     );
   }
 
-
-  const handleIncrement = () => setQuantity((itemIncre) => itemIncre + 1);
-  const handleDecrement = () => setQuantity((itemDecre) => (itemDecre > 1 ? itemDecre - 1 : 1)); 
-
-  const handleAddToCart = () => {
-    router.push(`/cart/${product.id}-${encodeURIComponent(product.name.toLowerCase())}?quantity=${quantity}`);
+  const handleIncrement = () => {
+    if (quantity < product.inventoryInStock) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
   };
+  const handleDecrement = () =>
+    setQuantity((itemDecre) => (itemDecre > 1 ? itemDecre - 1 : 1));
+
+  // const handleAddToCart = () => {
+  //   router.push(
+  //     `/cart/${product.id}-${encodeURIComponent(
+  //       product.name.toLowerCase()
+  //     )}?quantity=${quantity}`
+  //   );
+  // };
 
   return (
     <div className="w-full mx-auto py-10 mb-12 px-6 sm:px-10 lg:px-24 font-poppins flex flex-col lg:flex-row gap-10 lg:gap-6">
@@ -91,20 +101,45 @@ const ProductDetail = () => {
           </div>
           <div className="flex sm:flex-row flex-col gap-4 sm:gap-2 mt-6 items-start sm:items-center text-base">
             <div className=" hover:bg-[#F9F1E7] flex gap-6 mr-4 border border-[#9F9F9F] rounded-md py-2 px-3">
-              <span className="text-[#] cursor-pointer" onClick={handleDecrement}>-</span>
+              <span
+                className="text-[#] cursor-pointer"
+                onClick={handleDecrement}
+              >
+                -
+              </span>
               <button>{quantity}</button>
-              <span className="cursor-pointer" onClick={handleIncrement}>+</span>
+              <span className="cursor-pointer" onClick={handleIncrement}>
+                +
+              </span>
             </div>
-            <div className="cursor-pointer hover:bg-[#F9F1E7] py-2 px-5 rounded-lg border border-black" onClick={handleAddToCart}>
-            <Link href={`/cart/${product.id}-${encodeURIComponent(
-                product.name.toLowerCase()
-              )}`}>
-              <button>Add To Cart</button>
-              </Link>
+            <div
+              className="cursor-pointer hover:bg-[#F9F1E7] py-2 px-5 rounded-lg border border-black"
+              // onClick={handleAddToCart}
+            >
+              {/* <Link
+                href={`/cart/${product.id}-${encodeURIComponent(
+                  product.name.toLowerCase()
+                )}`}
+              > */}
+              <button
+                onClick={() => {
+                  if (product.inventoryStatus === true) {
+                    addToCart({
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      quantity: 1,
+                      image: product.mainImage,
+                    });
+                  }
+                }}
+              >
+                Add To Cart
+              </button>
+              {/* </Link> */}
             </div>
             <div className="cursor-pointer hover:bg-[#F9F1E7] flex items-center gap-3 py-2 px-5 rounded-lg border border-black">
-              
-              <button>Stock</button>
+              <button>Stock: {product.inventoryInStock}</button>
             </div>
           </div>
         </div>
@@ -114,6 +149,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
-
-              
