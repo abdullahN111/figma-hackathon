@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { productCardInfo } from "@/app/Data/product";
 import { useParams } from "next/navigation";
-// import Link from "next/link";
+
 import { useState } from "react";
 import { useCart } from "@/app/context/CartContext";
 
@@ -112,15 +112,7 @@ const ProductDetail = () => {
                 +
               </span>
             </div>
-            <div
-              className="cursor-pointer hover:bg-[#F9F1E7] py-2 px-5 rounded-lg border border-black"
-              // onClick={handleAddToCart}
-            >
-              {/* <Link
-                href={`/cart/${product.id}-${encodeURIComponent(
-                  product.name.toLowerCase()
-                )}`}
-              > */}
+            <div className="cursor-pointer hover:bg-[#F9F1E7] py-2 px-5 rounded-lg border border-black">
               <button
                 onClick={() => {
                   if (product.inventoryStatus === true) {
@@ -128,7 +120,7 @@ const ProductDetail = () => {
                       id: product.id,
                       name: product.name,
                       price: product.price,
-                      quantity: 1,
+                      quantity: quantity,
                       image: product.mainImage,
                     });
                   }
@@ -136,7 +128,6 @@ const ProductDetail = () => {
               >
                 Add To Cart
               </button>
-              {/* </Link> */}
             </div>
             <div className="cursor-pointer hover:bg-[#F9F1E7] flex items-center gap-3 py-2 px-5 rounded-lg border border-black">
               <button>Stock: {product.inventoryInStock}</button>

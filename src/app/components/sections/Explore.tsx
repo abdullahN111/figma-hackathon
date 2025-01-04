@@ -49,7 +49,7 @@ const Explore = () => {
             alt={images[currentIndex].title}
             className="rounded-md"
           />
-          <div className="absolute bottom-6 left-6 opacity-80 bg-white p-8 rounded-sm shadow text-[#3A3A3A] z-[1000]">
+          <div className="absolute bottom-6 left-6 opacity-80 bg-white p-8 rounded-sm shadow text-[#3A3A3A] z-[500]">
             <p className="text-sm font-semibold">
               {images[currentIndex].title}
             </p>

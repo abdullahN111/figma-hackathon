@@ -1,13 +1,11 @@
 import { ImCancelCircle } from "react-icons/im";
 import { MdCancel } from "react-icons/md";
-
 import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
+import Link from "next/link";
 
 const CartItems = ({ closeCart }: { closeCart: () => void }) => {
   const { cartItems, removeFromCart } = useCart();
-
-
 
   return (
     <div
@@ -73,35 +71,42 @@ const CartItems = ({ closeCart }: { closeCart: () => void }) => {
           <>
             <div className="flex mb-4 gap-4 sm:gap-0 items-center justify-between">
               <p className="text-[15px]">Subtotal</p>
-              <p className="mr-0 sm:mr-16 text-[15px] text-[#B88E2F] font-semibold">
-                
-              Rs.{" "}
-          {cartItems.reduce((total, item) => {
-           
-            let price = item.price;
+              <p className="mr-8 sm:mr-16 text-[15px] text-[#B88E2F] font-semibold">
+                Rs.{" "}
+                {cartItems.reduce((total, item) => {
+                  let price = item.price;
 
+                  if (typeof price === "string") {
+                    price = price.replace(/[^0-9.]+/g, "");
+                  }
 
-            if (typeof price === "string") {
-              price = price.replace(/[^0-9.]+/g, ""); // Remove non-numeric characters except decimal points
-            }
+                  const parsedPrice = parseFloat(price as string);
 
-            const parsedPrice = parseFloat(price);
-    
-            const validPrice = isNaN(parsedPrice) ? 0 : parsedPrice;
+                  const validPrice = isNaN(parsedPrice) ? 0 : parsedPrice;
 
-            return total + validPrice * item.quantity;
-          }, 0)}
-
+                  return total + validPrice * item.quantity;
+                }, 0)}
               </p>
             </div>
             <div className="border border-[#D9D9D9] w-full"></div>
+
             <div className="flex items-center justify-center gap-3 my-5 mr-8">
-              <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-5 rounded-full border border-black">
-                Cart
-              </button>
-              <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-6 rounded-full border border-black">
-                Checkout
-              </button>
+              {cartItems.length > 0 && (
+                <>
+                  <Link
+                    href={`/cart/${cartItems[0].id}-${encodeURIComponent(
+                      cartItems[0].name.toLowerCase()
+                    )}`}
+                  >
+                    <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-5 rounded-full border border-black">
+                      Cart
+                    </button>
+                  </Link>
+                  <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-6 rounded-full border border-black">
+                    Checkout
+                  </button>
+                </>
+              )}
             </div>
           </>
         )}
