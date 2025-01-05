@@ -9,6 +9,15 @@ import { MdCancel } from "react-icons/md";
 const Cart = () => {
   const { cartItems, removeFromCart } = useCart();
 
+
+  const cartTotal = cartItems.reduce((total, item) => {
+    const price = parseFloat(
+      item.price.toString().replace(/[^0-9.]+/g, "")
+    );
+    return total + (isNaN(price) ? 0 : price * item.quantity);
+  }, 0);
+
+  
   return (
     <section className="max-w-[1440px] bg-white container mx-auto px-3 sm:px-6 lg:px-20 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -30,7 +39,10 @@ const Cart = () => {
               <tbody>
                 {cartItems.map((item) => {
                   // const itemQuantity = parseInt(searchParams.get("quantity") || "1", 10);
-                  const subtotal = Number(item.price) * item.quantity;
+                  const subtotal =
+                    parseFloat(item.price.toString().replace(/[^0-9.]+/g, "")) *
+                    item.quantity;
+                 
 
                   return (
                     <tr key={item.id} className="border-none">
@@ -87,22 +99,12 @@ const Cart = () => {
           </h2>
           <div className="flex justify-between mb-5">
             <span className="text-base font-semibold">Subtotal</span>
-            <span className="text-base text-[#9F9F9F]">
-              Rs.{" "}
-              {cartItems.reduce(
-                (total, item) => total + Number(item.price) * item.quantity,
-                0
-              )}
-            </span>
+            <span className="text-base text-[#9F9F9F]">Rs. {cartTotal}</span>
           </div>
           <div className="flex justify-between font-medium mb-5">
             <span className="text-base font-semibold">Total</span>
             <span className="text-xl text-[#B88E2F] font-semibold">
-              Rs.{" "}
-              {cartItems.reduce(
-                (total, item) => total + Number(item.price) * item.quantity,
-                0
-              )}
+              Rs. {cartTotal}
             </span>
           </div>
 

@@ -18,7 +18,7 @@ const ProductCard = () => {
         return (
           <div
             key={card.id}
-            className="relative flex flex-col w-[250px] sm:w-auto h-[350px] bg-[#F4F5F7] rounded-sm shadow-md overflow-hidden sm:mx-10 md:mx-2 lg:mx-0 transition-transform duration-300"
+            className="relative flex flex-col w-[250px] sm:w-auto h-[350px] lg:h-[370px] bg-[#F4F5F7] rounded-sm shadow-md overflow-hidden sm:mx-10 md:mx-2 lg:mx-0 transition-transform duration-300"
           >
             <div className="relative w-full h-0 pb-[75%] group cursor-pointer">
               <Image
@@ -65,8 +65,10 @@ const ProductCard = () => {
                   </button>
                   <button
                     className={`${
-                      card.inventoryStatus ? "text-white" : "text-red-600"
-                    } flex items-center gap-[2px] hover:text-red-500 transition duration-300 text-sm`}
+                      card.inventoryStatus
+                        ? "text-white"
+                        : "text-red-600 hover:text-red-500"
+                    } flex items-center gap-[2px] hover:text-[#B88E2F] transition duration-300 text-sm`}
                   >
                     <span>
                       <MdOutlineInventory2 />
@@ -95,10 +97,10 @@ const ProductCard = () => {
               </Link>
               <p className="text-base text-[#898989]">{card.features}</p>
               <h5 className="text-xl font-semibold text-[#3A3A3A]">
-                {card.price}{" "}
+               Rs. {card.price}{" "}
                 {card.oldPrice && (
                   <span className="text-base text-[#B0B0B0] line-through font-normal">
-                    {card.oldPrice}
+                    Rs. {card.oldPrice}
                   </span>
                 )}
               </h5>

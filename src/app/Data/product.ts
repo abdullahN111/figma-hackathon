@@ -98,8 +98,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "6 Customer Review",
     description:
       "Setting the bar as one of the most charming mugs in its class, the Muggo is a compact, stylish design with an ergonomic handle and durable build that offers a delightful experience for any beverage.",
-    inventoryStatus: false,
-    inventoryInStock: 0,
+    inventoryStatus: true,
+    inventoryInStock: 7,
   },
   {
     id: 7,
@@ -111,8 +111,8 @@ export const productCardInfo: ProductCartInfo[] = [
     reviews: "8 Customer Review",
     description:
       "Setting the bar as one of the most adorable bed sets in its class, the Pinkgy is a cozy, vibrant design with soft fabrics and charming patterns that offer comfort and a playful touch to any bedroom.",
-    inventoryStatus: true,
-    inventoryInStock: 7,
+    inventoryStatus: false,
+    inventoryInStock: 0,
   },
   {
     id: 8,
@@ -125,6 +125,6 @@ export const productCardInfo: ProductCartInfo[] = [
     description:
       "Setting the bar as one of the most elegant pots in its class, the Potty is a sleek, modern design with clean lines and durable materials that offer a perfect home for plants in any minimalist space.",
     inventoryStatus: true,
-    inventoryInStock: 3,
+    inventoryInStock: 5,
   },
 ];

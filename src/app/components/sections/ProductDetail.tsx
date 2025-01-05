@@ -123,6 +123,7 @@ const ProductDetail = () => {
                       quantity: quantity,
                       image: product.mainImage,
                     });
+                    setQuantity(1)
                   }
                 }}
               >
