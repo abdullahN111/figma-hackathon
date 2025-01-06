@@ -2,12 +2,12 @@
 
 import { IoIosArrowForward } from "react-icons/io";
 import { useParams } from "next/navigation";
-import { productCardInfo } from "@/app/Data/product";
+import { ProductCardData } from "@/app/Data/index";
 
 const ProductHeader = () => {
   const { id } = useParams<{ id: string }>();
 
-  const product = productCardInfo.find((item) => item.id === parseInt(id)); //finding id
+  const product = ProductCardData.find((item) => item.id === parseInt(id)); //finding id
 
   return (
     <div className="w-full px-8 sm:px-12 md:px-16 lg:px-20 h-24 bg-[#F9F1E7] font-poppins flex items-center gap-[12px] md:gap-[17px]">

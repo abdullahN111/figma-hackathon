@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { productCardInfo } from "@/app/Data/product";
+import { ProductCardData } from "@/app/Data/index";
 import { useParams } from "next/navigation";
 
 import { useState } from "react";
@@ -11,9 +11,8 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams<{ id: string }>();
-  // const router = useRouter();
 
-  const product = productCardInfo.find((item) => item.id === parseInt(id)); // Finding product id
+  const product = ProductCardData.find((item) => item.id === parseInt(id));
   if (!product) {
     return (
       <div className="text-center mt-10">
@@ -33,14 +32,6 @@ const ProductDetail = () => {
   const handleDecrement = () =>
     setQuantity((itemDecre) => (itemDecre > 1 ? itemDecre - 1 : 1));
 
-  // const handleAddToCart = () => {
-  //   router.push(
-  //     `/cart/${product.id}-${encodeURIComponent(
-  //       product.name.toLowerCase()
-  //     )}?quantity=${quantity}`
-  //   );
-  // };
-
   return (
     <div className="w-full mx-auto py-10 mb-12 px-6 sm:px-10 lg:px-24 font-poppins flex flex-col lg:flex-row gap-10 lg:gap-6">
       <div className="basis-[40%] flex flex-col lg:flex-row gap-6">
@@ -57,7 +48,7 @@ const ProductDetail = () => {
         <div>
           <div className="flex justify-center items-center bg-[#F9F1E7] rounded-md w-auto h-[300px] lg:h-[500px]">
             <Image
-              src={product.mainImage}
+              src={product.image}
               alt={`${product.name} main image`}
               className="max-w-full h-auto object-contain"
             />
@@ -121,9 +112,9 @@ const ProductDetail = () => {
                       name: product.name,
                       price: product.price,
                       quantity: quantity,
-                      image: product.mainImage,
+                      image: product.image,
                     });
-                    setQuantity(1)
+                    setQuantity(1);
                   }
                 }}
               >

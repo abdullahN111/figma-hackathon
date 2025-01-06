@@ -38,7 +38,7 @@ const Cart = () => {
               </thead>
               <tbody>
                 {cartItems.map((item) => {
-                  // const itemQuantity = parseInt(searchParams.get("quantity") || "1", 10);
+                
                   const subtotal =
                     parseFloat(item.price.toString().replace(/[^0-9.]+/g, "")) *
                     item.quantity;

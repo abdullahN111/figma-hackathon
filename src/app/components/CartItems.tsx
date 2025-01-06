@@ -6,6 +6,19 @@ import Link from "next/link";
 
 const CartItems = ({ closeCart }: { closeCart: () => void }) => {
   const { cartItems, removeFromCart } = useCart();
+  const itemsTotal = cartItems.reduce((total, item) => {
+    let price = item.price;
+
+    if (typeof price === "string") {
+      price = price.replace(/[^0-9.]+/g, "");
+    }
+
+    const parsedPrice = parseFloat(price as string);
+
+    const validPrice = isNaN(parsedPrice) ? 0 : parsedPrice;
+
+    return total + validPrice * item.quantity;
+  }, 0);
 
   return (
     <div
@@ -72,20 +85,7 @@ const CartItems = ({ closeCart }: { closeCart: () => void }) => {
             <div className="flex mb-4 gap-4 sm:gap-0 items-center justify-between">
               <p className="text-[15px]">Subtotal</p>
               <p className="mr-8 sm:mr-16 text-[15px] text-[#B88E2F] font-semibold">
-                Rs.{" "}
-                {cartItems.reduce((total, item) => {
-                  let price = item.price;
-
-                  if (typeof price === "string") {
-                    price = price.replace(/[^0-9.]+/g, "");
-                  }
-
-                  const parsedPrice = parseFloat(price as string);
-
-                  const validPrice = isNaN(parsedPrice) ? 0 : parsedPrice;
-
-                  return total + validPrice * item.quantity;
-                }, 0)}
+                Rs. {itemsTotal}
               </p>
             </div>
             <div className="border border-[#D9D9D9] w-full"></div>
@@ -102,9 +102,11 @@ const CartItems = ({ closeCart }: { closeCart: () => void }) => {
                       Cart
                     </button>
                   </Link>
-                  <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-6 rounded-full border border-black">
-                    Checkout
-                  </button>
+                  <Link href="/checkout">
+                    <button className="cursor-pointer text-xs hover:bg-[#F9F1E7] py-1 px-6 rounded-full border border-black">
+                      Checkout
+                    </button>
+                  </Link>
                 </>
               )}
             </div>
