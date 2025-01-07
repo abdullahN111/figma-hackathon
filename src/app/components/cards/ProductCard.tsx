@@ -9,12 +9,12 @@ import { MdOutlineInventory2 } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
 
-const ProductCard = () => {
+const ProductCard = ({ showProducts }: { showProducts: number }) => {
   const { addToCart } = useCart();
 
   return (
     <div className="flex flex-col justify-center items-center sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 sm:gap-8 my-6 mx-4 lg:mx-6">
-      {ProductCardData.map((card) => {
+      {ProductCardData.slice(0, showProducts).map((card) => {
         return (
           <div
             key={card.id}
@@ -97,7 +97,7 @@ const ProductCard = () => {
               </Link>
               <p className="text-base text-[#898989]">{card.features}</p>
               <h5 className="text-xl font-semibold text-[#3A3A3A]">
-               Rs. {card.price}{" "}
+                Rs. {card.price}{" "}
                 {card.oldPrice && (
                   <span className="text-base text-[#B0B0B0] line-through font-normal">
                     Rs. {card.oldPrice}
