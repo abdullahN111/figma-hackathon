@@ -7,17 +7,13 @@ import Link from "next/link";
 import { MdCancel } from "react-icons/md";
 
 const Cart = () => {
-  const { cartItems, removeFromCart } = useCart();
-
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
 
   const cartTotal = cartItems.reduce((total, item) => {
-    const price = parseFloat(
-      item.price.toString().replace(/[^0-9.]+/g, "")
-    );
+    const price = parseFloat(item.price.toString().replace(/[^0-9.]+/g, ""));
     return total + (isNaN(price) ? 0 : price * item.quantity);
   }, 0);
 
-  
   return (
     <section className="max-w-[1440px] bg-white container mx-auto px-3 sm:px-6 lg:px-20 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -38,11 +34,9 @@ const Cart = () => {
               </thead>
               <tbody>
                 {cartItems.map((item) => {
-                
                   const subtotal =
                     parseFloat(item.price.toString().replace(/[^0-9.]+/g, "")) *
                     item.quantity;
-                 
 
                   return (
                     <tr key={item.id} className="border-none">
@@ -64,14 +58,32 @@ const Cart = () => {
                         Rs. {item.price}
                       </td>
                       <td className="p-4 text-center">
-                        <div className="flex justify-start">
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity - 1)
+                            }
+                            className="px-[7.4px] hover:bg-[#F9F1E7] border border-[#9F9F9F] rounded-full"
+                          >
+                            -
+                          </button>
                           <input
                             type="number"
                             value={item.quantity}
                             min={1}
-                            className="w-10 h-8 rounded border px-1 py-1 text-center focus:outline-none"
-                            readOnly
+                            onChange={(e) =>
+                              updateQuantity(item.id, Number(e.target.value))
+                            }
+                            className="w-12 h-8 rounded border px-1 py-1 text-center focus:outline-none"
                           />
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity + 1)
+                            }
+                            className="px-[6px] hover:bg-[#F9F1E7] border border-[#9F9F9F] rounded-full"
+                          >
+                            +
+                          </button>
                         </div>
                       </td>
                       <td className="p-4 text-black text-base font-medium text-start whitespace-nowrap">

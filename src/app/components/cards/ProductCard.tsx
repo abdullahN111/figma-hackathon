@@ -9,7 +9,7 @@ import { MdOutlineInventory2 } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
 
-const ProductCard = ({ showProducts }: { showProducts: number }) => {
+const ProductCard = ({ showProducts }: { showProducts?: number }) => {
   const { addToCart } = useCart();
 
   return (
