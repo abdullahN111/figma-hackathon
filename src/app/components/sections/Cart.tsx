@@ -71,6 +71,7 @@ const Cart = () => {
                             type="number"
                             value={item.quantity}
                             min={1}
+                            readOnly
                             onChange={(e) =>
                               updateQuantity(item.id, Number(e.target.value))
                             }
